@@ -97,6 +97,24 @@ const plugin: PluginDefinition = {
       error: (msg) => api.logger.error(`[stagehand] ${msg}`),
     })
 
+    // browser_open
+    api.registerTool(
+      {
+        name: 'browser_open',
+        label: 'Open Browser',
+        description:
+          'Open the browser. Launches a headed Chrome window with your persistent profile (cookies, logins, etc.). Use this when asked to open or launch the browser without a specific URL.',
+        parameters: Type.Object({}),
+        async execute(_toolCallId: string, _params: unknown) {
+          await manager.ensure()
+          return {
+            content: [{ type: 'text', text: 'Browser is open.' }],
+          }
+        },
+      },
+      { name: 'browser_open' },
+    )
+
     // browser_navigate
     api.registerTool(
       {
