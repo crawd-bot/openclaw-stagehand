@@ -52,6 +52,7 @@ function parsePluginConfig(raw: Record<string, unknown> | undefined): StagehandC
     browserbaseApiKey: typeof cfg.browserbaseApiKey === 'string' ? cfg.browserbaseApiKey : undefined,
     browserbaseProjectId: typeof cfg.browserbaseProjectId === 'string' ? cfg.browserbaseProjectId : undefined,
     profileDir: typeof cfg.profileDir === 'string' ? cfg.profileDir : DEFAULT_PROFILE_DIR,
+    executablePath: typeof cfg.executablePath === 'string' ? cfg.executablePath : undefined,
     verbose: cfg.verbose === 0 || cfg.verbose === 1 || cfg.verbose === 2 ? cfg.verbose : 1,
   }
 }
@@ -74,6 +75,7 @@ const stagehandConfigSchema = {
     browserbaseApiKey: { label: 'Browserbase API Key', sensitive: true },
     browserbaseProjectId: { label: 'Browserbase Project ID' },
     profileDir: { label: 'Profile Directory', advanced: true },
+    executablePath: { label: 'Chrome Executable Path', advanced: true },
     verbose: { label: 'Verbosity', advanced: true },
   },
 }

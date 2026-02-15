@@ -28,6 +28,10 @@
         "type": "string",
         "description": "Chrome user data directory for persistent cookies/sessions"
       },
+      "executablePath": {
+        "type": "string",
+        "description": "Path to Chrome/Chromium executable. If unset, uses Playwright's bundled Chromium."
+      },
       "verbose": {
         "type": "integer",
         "minimum": 0,
@@ -43,6 +47,7 @@
     "browserbaseApiKey": { "label": "Browserbase API Key", "sensitive": true },
     "browserbaseProjectId": { "label": "Browserbase Project ID" },
     "profileDir": { "label": "Profile Directory", "advanced": true },
+    "executablePath": { "label": "Chrome Executable Path", "advanced": true },
     "verbose": { "label": "Verbosity", "advanced": true }
   }
 }

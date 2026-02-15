@@ -18,6 +18,7 @@ export type StagehandConfig = {
   browserbaseApiKey?: string
   browserbaseProjectId?: string
   profileDir: string
+  executablePath?: string
   verbose: 0 | 1 | 2
 }
 
@@ -178,6 +179,7 @@ export class StagehandManager {
         localBrowserLaunchOptions: {
           headless: false,
           viewport: { width: 1280, height: 900 },
+          ...(cfg.executablePath ? { executablePath: cfg.executablePath } : {}),
           userDataDir: profileDir,
           preserveUserDataDir: true,
           args: ['--no-first-run', '--disable-infobars'],
