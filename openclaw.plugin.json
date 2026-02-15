@@ -1,0 +1,48 @@
+{
+  "id": "stagehand",
+  "name": "Stagehand Browser",
+  "description": "AI-powered browser automation via Stagehand — headed Chrome with persistent profiles",
+  "skills": ["./skills/browser"],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": { "type": "boolean" },
+      "model": {
+        "type": "string",
+        "description": "AI model for Stagehand vision/reasoning (Vercel AI SDK format, e.g. anthropic/claude-haiku-4-5-20251001)"
+      },
+      "modelApiKey": {
+        "type": "string",
+        "description": "API key for the model provider. Falls back to ANTHROPIC_API_KEY env var."
+      },
+      "browserbaseApiKey": {
+        "type": "string",
+        "description": "Browserbase API key. If both this and browserbaseProjectId are set (config or env), uses Browserbase cloud instead of local Chrome."
+      },
+      "browserbaseProjectId": {
+        "type": "string",
+        "description": "Browserbase project ID."
+      },
+      "profileDir": {
+        "type": "string",
+        "description": "Chrome user data directory for persistent cookies/sessions"
+      },
+      "verbose": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 2,
+        "description": "Stagehand logging verbosity (0=quiet, 1=normal, 2=debug)"
+      }
+    }
+  },
+  "uiHints": {
+    "enabled": { "label": "Enabled" },
+    "model": { "label": "AI Model", "placeholder": "anthropic/claude-haiku-4-5-20251001" },
+    "modelApiKey": { "label": "Model API Key", "sensitive": true },
+    "browserbaseApiKey": { "label": "Browserbase API Key", "sensitive": true },
+    "browserbaseProjectId": { "label": "Browserbase Project ID" },
+    "profileDir": { "label": "Profile Directory", "advanced": true },
+    "verbose": { "label": "Verbosity", "advanced": true }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "name": "stagehand",
+  "version": "0.1.0",
+  "description": "OpenClaw plugin — Stagehand browser automation with persistent profiles",
+  "type": "module",
+  "types": "./dist/plugin.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/plugin.d.ts",
+      "import": "./dist/plugin.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "skills",
+    "openclaw.plugin.json"
+  ],
+  "scripts": {
+    "dev": "tsx src/plugin.ts",
+    "build": "tsup src/plugin.ts --format esm --dts --clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "openclaw",
+    "browser",
+    "stagehand",
+    "automation"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@browserbasehq/stagehand": "^2.3.0",
+    "@sinclair/typebox": "^0.32.35",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "openclaw": {
+    "extensions": [
+      "./src/plugin.ts"
+    ]
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026"
+  },
+  "peerDependenciesMeta": {
+    "openclaw": {
+      "optional": true
+    }
+  }
+}
